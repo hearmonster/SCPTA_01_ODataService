@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:edmx4="http://docs.oasis-open.org/odata/ns/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <edmx4:Reference Uri="vocabularies/com.sap.cloud.server.odata.sql.v1.xml">
+        <edmx4:Include Namespace="com.sap.cloud.server.odata.sql.v1" Alias="SQL"/>
+    </edmx4:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="techacademy" Alias="techacademy" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Incident">
+                <Key>
+                    <PropertyRef Name="IncidentID"/>
+                </Key>
+                <Property Name="IncidentCategory" Type="Edm.String" Nullable="true" MaxLength="50"/>
+                <Property Name="IncidentDate" Type="Edm.DateTimeOffset" Nullable="true"/>
+                <Property Name="IncidentDescription" Type="Edm.String" Nullable="true" MaxLength="500"/>
+                <Property Name="IncidentID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="IncidentLocatioon" Type="Edm.String" Nullable="true" MaxLength="100"/>
+                <Property Name="IncidentPhoto" Type="Edm.Binary" Nullable="true"/>
+                <Property Name="IncidentStatus" Type="Edm.String" Nullable="true" MaxLength="30"/>
+                <Property Name="ReportedBy" Type="Edm.String" Nullable="true" MaxLength="30"/>
+                <Property Name="UrgencyLevel" Type="Edm.String" Nullable="true" MaxLength="30"/>
+            </EntityType>
+            <EntityContainer Name="TechacademyService" m:IsDefaultEntityContainer="true">
+                <Annotation Term="SQL.TrackChanges" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+                <EntitySet Name="IncidentSet" EntityType="techacademy.Incident"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
